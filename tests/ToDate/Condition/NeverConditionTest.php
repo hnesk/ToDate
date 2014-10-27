@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class NeverConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\NeverCondition::contains
      */
@@ -27,9 +26,7 @@ class NeverConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithSingleValue()
     {
         $c = new NeverCondition();
-        self::assertEquals('Never', (string)$c);
+        self::assertEquals('Never', (string) $c);
     }
 
 }
-
-?>

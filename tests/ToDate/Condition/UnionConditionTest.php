@@ -58,7 +58,6 @@ class UnionConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains($this->testDate));
     }
 
-
     /**
      * @covers ToDate\Condition\UnionCondition::__toString
      * @covers ToDate\Condition\AbstractLogicCondition::__construct
@@ -66,9 +65,7 @@ class UnionConditionTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $c = new UnionCondition(new AlwaysCondition(), new NeverCondition());
-        self::assertEquals('(Always) OR (Never)', (string)$c);
+        self::assertEquals('(Always) OR (Never)', (string) $c);
     }
 
 }
-
-?>

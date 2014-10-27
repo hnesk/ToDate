@@ -35,7 +35,7 @@ class NotCondition extends AbstractDateCondition
     }
 
     /**
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return bool
      */
     public function contains(\DateTime $date)
@@ -51,6 +51,3 @@ class NotCondition extends AbstractDateCondition
         return 'NOT(' . $this->condition->__toString() . ')';
     }
 }
-
-
-?>

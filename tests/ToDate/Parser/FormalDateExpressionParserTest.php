@@ -2,7 +2,6 @@
 
 namespace ToDate\Parser;
 
-
 use ToDate\Condition;
 
 /**
@@ -12,14 +11,13 @@ use ToDate\Condition;
 class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
 {
 
-
     public function testParseWithDateModulo()
     {
         $expression = 'DateModulo = 2012-02-12%14d';
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\DateModuloOffsetCondition', $result);
-        self::assertEquals($expression, (string)$result);
+        self::assertEquals($expression, (string) $result);
     }
 
     public function testParseWithDate()
@@ -28,7 +26,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\DateCondition', $result);
-        self::assertEquals($expression, (string)$result);
+        self::assertEquals($expression, (string) $result);
     }
 
     public function testParseWithDayOfMonth()
@@ -37,7 +35,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\DayOfMonthCondition', $result);
-        self::assertEquals($expression, (string)$result);
+        self::assertEquals($expression, (string) $result);
     }
 
     public function testParseWithDayOfWeek()
@@ -46,7 +44,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\DayOfWeekCondition', $result);
-        self::assertEquals($expression, (string)$result);
+        self::assertEquals($expression, (string) $result);
     }
 
     public function testParseWithDayOfWeekOfMonth()
@@ -55,7 +53,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\DayOfWeekOfMonthCondition', $result);
-        self::assertEquals($expression, (string)$result);
+        self::assertEquals($expression, (string) $result);
     }
 
     public function testParseWithDayAndMonth()
@@ -64,9 +62,8 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\DayAndMonthCondition', $result);
-        self::assertEquals($expression, (string)$result);
+        self::assertEquals($expression, (string) $result);
     }
-
 
     public function testParseWithMonthRange()
     {
@@ -75,7 +72,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\MonthCondition', $result);
-        self::assertEquals($expectedExpression, (string)$result);
+        self::assertEquals($expectedExpression, (string) $result);
     }
 
     public function testParseWithYearRange()
@@ -85,9 +82,8 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\YearCondition', $result);
-        self::assertEquals($expectedExpression, (string)$result);
+        self::assertEquals($expectedExpression, (string) $result);
     }
-
 
     public function testParseWithFeature()
     {
@@ -96,9 +92,8 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\FeatureInSetCondition', $result);
-        self::assertEquals($expectedExpression, (string)$result);
+        self::assertEquals($expectedExpression, (string) $result);
     }
-
 
     public function testParseWithIntersection()
     {
@@ -107,7 +102,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\IntersectionCondition', $result);
-        self::assertEquals($expectedExpression, (string)$result);
+        self::assertEquals($expectedExpression, (string) $result);
     }
 
     public function testParseWithUnion()
@@ -117,9 +112,8 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\UnionCondition', $result);
-        self::assertEquals($expectedExpression, (string)$result);
+        self::assertEquals($expectedExpression, (string) $result);
     }
-
 
     public function testParseComplexStuff()
     {
@@ -128,9 +122,7 @@ class FormalDateExpressionParserTest extends \PHPUnit_Framework_TestCase
         $parser = new FormalDateExpressionParser($expression);
         $result = $parser->parse();
         self::assertInstanceOf('ToDate\Condition\UnionCondition', $result);
-        self::assertEquals($expectedExpression, (string)$result);
+        self::assertEquals($expectedExpression, (string) $result);
     }
 
 }
-
-?>

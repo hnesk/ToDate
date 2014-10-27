@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class YearConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\YearCondition::__construct
      * @covers ToDate\Condition\YearCondition::contains
@@ -35,7 +34,6 @@ class YearConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2014-05-04')));
     }
 
-
     /**
      * @covers ToDate\Condition\YearCondition::__construct
      * @covers ToDate\Condition\YearCondition::contains
@@ -58,10 +56,7 @@ class YearConditionTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $c = new YearCondition('2012-2015');
-        self::assertEquals('Year = 2012,2013,2014,2015', (string)$c);
+        self::assertEquals('Year = 2012,2013,2014,2015', (string) $c);
     }
 
-
 }
-
-?>

@@ -21,9 +21,13 @@ class UnionCondition extends AbstractLogicCondition
 {
     protected static $glue = 'OR';
 
+    /**
+     * @param bool $a
+     * @param bool $b
+     * @return bool
+     */
     protected function evaluate($a, $b)
     {
         return $a || $b;
     }
 }
-

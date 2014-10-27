@@ -58,7 +58,6 @@ class IntersectionConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains($this->testDate));
     }
 
-
     /**
      * @covers ToDate\Condition\IntersectionCondition::__toString
      * @covers ToDate\Condition\AbstractLogicCondition::__construct
@@ -66,9 +65,7 @@ class IntersectionConditionTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $c = new IntersectionCondition(new AlwaysCondition(), new NeverCondition());
-        self::assertEquals('(Always) AND (Never)', (string)$c);
+        self::assertEquals('(Always) AND (Never)', (string) $c);
     }
 
 }
-
-?>

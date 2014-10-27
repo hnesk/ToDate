@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::contains
      * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
@@ -39,7 +38,6 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
 
     }
 
-
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::__construct
      * @covers ToDate\Condition\DayOfMonthCondition::__toString
@@ -48,9 +46,8 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithDayRange()
     {
         $c = new DayOfMonthCondition('3-10,31');
-        self::assertEquals('DayOfMonth = 3,4,5,6,7,8,9,10,31', (string)$c);
+        self::assertEquals('DayOfMonth = 3,4,5,6,7,8,9,10,31', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::__construct
@@ -61,9 +58,8 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithInvertedDayRange()
     {
         $c = new DayOfMonthCondition('10-3,31');
-        self::assertEquals('DayOfMonth = 3,4,5,6,7,8,9,10,31', (string)$c);
+        self::assertEquals('DayOfMonth = 3,4,5,6,7,8,9,10,31', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::__construct
@@ -75,7 +71,6 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         new DayOfMonthCondition('1-murks,31');
     }
 
-
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::__construct
      * @covers ToDate\Condition\DayOfMonthCondition::__toString
@@ -83,7 +78,7 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithMultipleDays()
     {
         $c = new DayOfMonthCondition(array(3, 10));
-        self::assertEquals('DayOfMonth = 3,10', (string)$c);
+        self::assertEquals('DayOfMonth = 3,10', (string) $c);
     }
 
     /**
@@ -93,10 +88,7 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithSingleDay()
     {
         $c = new DayOfMonthCondition(3);
-        self::assertEquals('DayOfMonth = 3', (string)$c);
+        self::assertEquals('DayOfMonth = 3', (string) $c);
     }
 
-
 }
-
-?>

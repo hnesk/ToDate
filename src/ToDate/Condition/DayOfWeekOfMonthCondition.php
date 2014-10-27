@@ -50,7 +50,7 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
     protected $weeksOfMonth;
 
     /**
-     * @param int|array $weeksOfMonth
+     * @param int|array  $weeksOfMonth
      * @param int|string $dayOfWeek
      */
     public function __construct($weeksOfMonth, $dayOfWeek)
@@ -60,9 +60,8 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
         $this->dayOfWeek = self::lookupWeekday($dayOfWeek);
     }
 
-
     /**
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)
@@ -78,7 +77,7 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
                 $anchorDateString = $date->format('Y-m-01');
             } else {
                 // starting from the end of the next month
-                $anchorDateString = $date->format('Y') . '-' . (1 + (int)$date->format('m')) . '-01';
+                $anchorDateString = $date->format('Y') . '-' . (1 + (int) $date->format('m')) . '-01';
             }
             $testDate = new \DateTime($anchorDateString);
             $testDate->modify($weekOfMonth . ' ' . self::$PUKOOL[$this->dayOfWeek]);

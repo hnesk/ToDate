@@ -35,7 +35,7 @@ class DayOfWeekCondition extends AbstractDayOfWeekCondition
     }
 
     /**
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)

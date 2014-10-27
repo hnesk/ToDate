@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class DayAndMonthConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\DayAndMonthCondition::contains
      */
@@ -33,9 +32,7 @@ class DayAndMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $c = new DayAndMonthCondition(6, 12);
-        self::assertEquals('DayAndMonth = 6/12', (string)$c);
+        self::assertEquals('DayAndMonth = 6/12', (string) $c);
     }
 
 }
-
-?>

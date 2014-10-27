@@ -11,11 +11,15 @@ namespace ToDate\Iterator;
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
 
-
 use ToDate\Condition;
 use ToDate\Condition\DateConditionInterface;
 use ToDate\Parser\FormalDateExpressionParser;
 
+/**
+ * Class ConditionIterator
+ *
+ * Filter a DateTime Iterator by condition
+ */
 class ConditionIterator extends \FilterIterator
 {
     /** @var DateConditionInterface */
@@ -23,7 +27,7 @@ class ConditionIterator extends \FilterIterator
 
     /**
      *
-     * @param \Iterator $iterator
+     * @param \Iterator                     $iterator
      * @param DateConditionInterface|string $condition
      */
     public function __construct(\Iterator $iterator, $condition)
@@ -46,6 +50,7 @@ class ConditionIterator extends \FilterIterator
     public function accept()
     {
         $current = $this->getInnerIterator()->current();
+
         return $this->condition->contains($current);
     }
 }

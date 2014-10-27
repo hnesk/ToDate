@@ -38,8 +38,8 @@ class FeatureInSetCondition extends AbstractDateCondition
 
     /**
      *
-     * @param string $features Date format characters for php date()
-     * @param int|string|array $set Allowed value(s) for feature
+     * @param  string                    $features Date format characters for php date()
+     * @param  int|string|array          $set      Allowed value(s) for feature
      * @throws \InvalidArgumentException
      */
     public function __construct($features, $set)
@@ -52,7 +52,7 @@ class FeatureInSetCondition extends AbstractDateCondition
     }
 
     /**
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)
@@ -69,8 +69,8 @@ class FeatureInSetCondition extends AbstractDateCondition
     }
 
     /**
-     * @param string $features
-     * @param array $set
+     * @param  string $features
+     * @param  array  $set
      * @return string
      */
     protected static function formatSet($features, $set)

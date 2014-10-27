@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class EasterBasedConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\EasterBasedCondition::contains
      * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
@@ -31,7 +30,7 @@ class EasterBasedConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithEasterSunday()
     {
         $c = new EasterBasedCondition();
-        self::assertEquals('Easter', (string)$c);
+        self::assertEquals('Easter', (string) $c);
     }
 
     /**
@@ -41,7 +40,7 @@ class EasterBasedConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithHolyFriday()
     {
         $c = new EasterBasedCondition(-2);
-        self::assertEquals('Easter-2', (string)$c);
+        self::assertEquals('Easter-2', (string) $c);
     }
 
     /**
@@ -51,9 +50,7 @@ class EasterBasedConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithEasterMonday()
     {
         $c = new EasterBasedCondition(1);
-        self::assertEquals('Easter+1', (string)$c);
+        self::assertEquals('Easter+1', (string) $c);
     }
 
 }
-
-?>

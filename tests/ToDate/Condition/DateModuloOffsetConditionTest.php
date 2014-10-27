@@ -26,9 +26,8 @@ class DateModuloOffsetConditionTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructor()
     {
-        self::assertEquals('DateModulo = 2012-02-09%14d', (string)$this->condition);
+        self::assertEquals('DateModulo = 2012-02-09%14d', (string) $this->condition);
     }
-
 
     /**
      * @covers ToDate\Condition\DateModuloOffsetCondition::contains
@@ -51,7 +50,4 @@ class DateModuloOffsetConditionTest extends \PHPUnit_Framework_TestCase
 
     }
 
-
 }
-
-?>

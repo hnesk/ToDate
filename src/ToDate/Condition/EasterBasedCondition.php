@@ -47,7 +47,7 @@ class EasterBasedCondition extends AbstractDateCondition
     }
 
     /**
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)
@@ -68,6 +68,7 @@ class EasterBasedCondition extends AbstractDateCondition
         } else {
             $easterDate = self::$easterCache[$year];
         }
+
         return $testDate == $easterDate;
     }
 

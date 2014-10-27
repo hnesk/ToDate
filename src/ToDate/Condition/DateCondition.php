@@ -26,6 +26,9 @@ class DateCondition extends AbstractDateCondition
      */
     protected $date;
 
+    /**
+     * @param \DateTime $date
+     */
     public function __construct(\DateTime $date)
     {
         $this->date = self::normalizeDate($date);
@@ -33,7 +36,7 @@ class DateCondition extends AbstractDateCondition
 
     /**
      *
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)

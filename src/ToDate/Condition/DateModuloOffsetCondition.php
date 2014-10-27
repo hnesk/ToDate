@@ -36,7 +36,7 @@ class DateModuloOffsetCondition extends AbstractDateCondition
     /**
      *
      * @param \DateTime $date
-     * @param int $offsetInDays
+     * @param int       $offsetInDays
      */
     public function __construct(\DateTime $date, $offsetInDays)
     {
@@ -46,12 +46,13 @@ class DateModuloOffsetCondition extends AbstractDateCondition
 
     /**
      *
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)
     {
         $days = $this->date->diff(self::normalizeDate($date))->days;
+
         return $days % $this->offsetInDays === 0;
     }
 

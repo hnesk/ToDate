@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class FeatureInSetConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\FeatureInSetCondition::__construct
      * @expectedException \InvalidArgumentException
@@ -19,7 +18,6 @@ class FeatureInSetConditionTest extends \PHPUnit_Framework_TestCase
         new FeatureInSetCondition('X', 3);
     }
 
-
     /**
      * @covers ToDate\Condition\FeatureInSetCondition::__construct
      * @covers ToDate\Condition\FeatureInSetCondition::__toString
@@ -27,10 +25,7 @@ class FeatureInSetConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithComplexFeature()
     {
         $c = new FeatureInSetCondition('Ymd', '20120412');
-        self::assertEquals('"Ymd" = 20120412', (string)$c);
+        self::assertEquals('"Ymd" = 20120412', (string) $c);
     }
 
-
 }
-
-?>

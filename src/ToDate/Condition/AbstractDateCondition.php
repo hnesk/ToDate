@@ -23,7 +23,7 @@ abstract class AbstractDateCondition implements DateConditionInterface
      *
      * Example: 1-3,5,9-12 => [1,2,3,5,9,10,11,12]
      *
-     * @param string|array $stringOrArray
+     * @param  string|array $stringOrArray
      * @return array
      */
     protected static function toArray($stringOrArray)
@@ -51,14 +51,15 @@ abstract class AbstractDateCondition implements DateConditionInterface
                     $result[] = $part;
                 }
             }
+
             return $result;
         }
     }
 
     /**
      *
-     * @param \DateTime $date
-     * @param string $modify
+     * @param  \DateTime $date
+     * @param  string    $modify
      * @return \DateTime
      */
     protected static function normalizeDate(\DateTime $date, $modify = '')
@@ -68,18 +69,31 @@ abstract class AbstractDateCondition implements DateConditionInterface
         if ($modify) {
             $result->modify($modify);
         }
+
         return $result;
     }
 
+    /**
+     * Alias for contains
+     * @param \DateTime $date
+     * @return bool
+     */
     public function __invoke(\DateTime $date)
     {
         return $this->contains($date);
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return 'Never';
     }
 
+    /**
+     * @param \DateTime $date
+     * @return bool
+     */
     abstract public function contains(\DateTime $date);
 }

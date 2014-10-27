@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\DayOfWeekCondition::__construct
      * @covers ToDate\Condition\DayOfWeekCondition::__toString
@@ -18,7 +17,7 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testConstructorWithSingleIntegerDay()
     {
         $c = new DayOfWeekCondition(5);
-        self::assertEquals('DayOfWeek = FRI', (string)$c);
+        self::assertEquals('DayOfWeek = FRI', (string) $c);
     }
 
     /**
@@ -30,7 +29,7 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testConstructorWithMultipleIntegerDays()
     {
         $c = new DayOfWeekCondition(array(3, 5));
-        self::assertEquals('DayOfWeek = WED,FRI', (string)$c);
+        self::assertEquals('DayOfWeek = WED,FRI', (string) $c);
     }
 
     /**
@@ -44,9 +43,8 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testConstructorWithMultipleStringDays()
     {
         $c = new DayOfWeekCondition(array('WED', 'FRI'));
-        self::assertEquals('DayOfWeek = WED,FRI', (string)$c);
+        self::assertEquals('DayOfWeek = WED,FRI', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekCondition::__construct
@@ -59,7 +57,7 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testConstructorWithCsvStringDays()
     {
         $c = new DayOfWeekCondition('WED,FRI');
-        self::assertEquals('DayOfWeek = WED,FRI', (string)$c);
+        self::assertEquals('DayOfWeek = WED,FRI', (string) $c);
     }
 
     /**
@@ -72,9 +70,8 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testConstructorWithCsvStringAllDays()
     {
         $c = new DayOfWeekCondition('MON,TUE,WED,THU,FRI,SAT,SUN');
-        self::assertEquals('DayOfWeek = MON,TUE,WED,THU,FRI,SAT,SUN', (string)$c);
+        self::assertEquals('DayOfWeek = MON,TUE,WED,THU,FRI,SAT,SUN', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekCondition::contains
@@ -94,9 +91,8 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithSingleValue()
     {
         $c = new DayOfWeekCondition(DayOfWeekCondition::FRI);
-        self::assertEquals('DayOfWeek = FRI', (string)$c);
+        self::assertEquals('DayOfWeek = FRI', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekCondition::__toString
@@ -104,9 +100,8 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithMultipleValues()
     {
         $c = new DayOfWeekCondition('MON,FRI');
-        self::assertEquals('DayOfWeek = MON,FRI', (string)$c);
+        self::assertEquals('DayOfWeek = MON,FRI', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\AbstractDayOfWeekCondition::lookupWeekday
@@ -116,7 +111,6 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     {
         new DayOfWeekCondition('DIE');
     }
-
 
     /**
      * @covers ToDate\Condition\AbstractDayOfWeekCondition::lookupWeekday
@@ -128,5 +122,3 @@ class DayOfWeekConditionTest extends \PHPUnit_Framework_TestCase
     }
 
 }
-
-?>

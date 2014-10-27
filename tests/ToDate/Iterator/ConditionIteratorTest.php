@@ -12,7 +12,6 @@ use ToDate\Condition\NeverCondition;
 class ConditionIteratorTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Iterator\ConditionIterator::__construct
      * @covers ToDate\Iterator\ConditionIterator::accept
@@ -27,7 +26,6 @@ class ConditionIteratorTest extends \PHPUnit_Framework_TestCase
             $results[] = $date;
         }
         self::assertCount(0, $results);
-
 
     }
 
@@ -48,7 +46,4 @@ class ConditionIteratorTest extends \PHPUnit_Framework_TestCase
 
     }
 
-
 }
-
-?>

@@ -43,9 +43,7 @@ class NotConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithSingleValue()
     {
         $c = new NotCondition(new AlwaysCondition());
-        self::assertEquals('NOT(Always)', (string)$c);
+        self::assertEquals('NOT(Always)', (string) $c);
     }
 
 }
-
-?>

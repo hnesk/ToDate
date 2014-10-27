@@ -9,7 +9,6 @@ namespace ToDate\Iterator;
 class DayIteratorTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Iterator\DayIterator::doNext
      */
@@ -22,5 +21,3 @@ class DayIteratorTest extends \PHPUnit_Framework_TestCase
     }
 
 }
-
-?>

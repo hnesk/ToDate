@@ -54,6 +54,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
     {
         $result = $this->match_Result();
         $this->lastResult = $result;
+
         return $result['Expression'];
     }
 
@@ -67,7 +68,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
         $self['Expression'] = new DayOfWeekOfMonthCondition($sub['WeekList'], $sub['DayOfWeek']);
     }
 
-
     /*
      * Functions for DayOfWeekExpression
      */
@@ -76,7 +76,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
     {
         $self['WeekList'] = self::createList($sub);
     }
-
 
     /*
      * Functions for DateExpression
@@ -96,7 +95,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
     {
         $self['Expression'] = new DayOfWeekCondition($sub['DayOfWeekList']['text']);
     }
-
 
     /*
      * Functions for DateOffsetExpression
@@ -123,6 +121,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
         $date = new \DateTime();
         $date->setDate($sub['Year']['text'], $sub['Month']['text'], $sub['Day']['text']);
         $date->setTime(0, 0, 0);
+
         return $date;
     }
 
@@ -135,7 +134,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
     {
         $self['Expression'] = new DateModuloOffsetCondition($sub['Date'], $sub['Offset']);
     }
-
 
     /*
      * Functions for DayOfMonthExpression
@@ -157,7 +155,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
 
     }
 
-
     /*
      * Functions for FeatureExpression
      */
@@ -166,7 +163,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
     {
         $self['Unit'] = strtoupper(substr($sub['text'], 0, 1));
     }
-
 
     /*
      * Functions for MonthExpression
@@ -210,7 +206,6 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
     {
         $self['Expression'] = $sub['Expression'];
     }
-
 
     /*
      * Helper functions

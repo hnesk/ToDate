@@ -35,4 +35,3 @@ $every2ndAndLastSaturydayIn2014 = new ConditionIterator($everyDayIn2014, $second
 foreach ($every2ndAndLastSaturydayIn2014 as $saturday) {
     echo $saturday->format('d.m.Y, l') . PHP_EOL;
 }
-

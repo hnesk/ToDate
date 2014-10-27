@@ -25,7 +25,7 @@ class DayAndMonthCondition extends FeatureInSetCondition
      */
     public function __construct($day, $month)
     {
-        parent::__construct('j/n', (int)$day . '/' . (int)$month);
+        parent::__construct('j/n', (int) $day . '/' . (int) $month);
     }
 
     /**

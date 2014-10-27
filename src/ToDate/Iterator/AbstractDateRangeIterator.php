@@ -49,7 +49,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
     /**
      * Build/clone a DateTime object out of string|DateTime
      *
-     * @param string|\DateTime $date
+     * @param  string|\DateTime $date
      * @return \DateTime
      */
     protected static function toDate($date)
@@ -57,6 +57,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
         $dateCopy = $date instanceof \DateTime ? clone $date : new \DateTime($date);
         /* @var $dateCopy \DateTime */
         $dateCopy->setTime(0, 0, 0);
+
         return $dateCopy;
     }
 
@@ -83,11 +84,17 @@ abstract class AbstractDateRangeIterator implements \Iterator
         return clone $this->end;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function current()
     {
         return $this->current;
     }
 
+    /**
+     * @return int
+     */
     public function key()
     {
         return $this->iteration;
@@ -96,6 +103,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
     public function next()
     {
         $this->iteration++;
+
         return $this->doNext();
     }
 

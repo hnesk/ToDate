@@ -139,5 +139,3 @@ class AbstractDateRangeIteratorTest extends \PHPUnit_Framework_TestCase
     }
 
 }
-
-?>

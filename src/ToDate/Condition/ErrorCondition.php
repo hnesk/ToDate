@@ -37,7 +37,7 @@ class ErrorCondition extends AbstractDateCondition
 
     /**
      *
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)

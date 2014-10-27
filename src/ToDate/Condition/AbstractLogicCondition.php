@@ -43,7 +43,7 @@ abstract class AbstractLogicCondition extends AbstractDateCondition
 
     /**
      *
-     * @param \DateTime $date
+     * @param  \DateTime $date
      * @return boolean
      */
     public function contains(\DateTime $date)
@@ -51,6 +51,12 @@ abstract class AbstractLogicCondition extends AbstractDateCondition
         return $this->evaluate($this->condition1->contains($date), $this->condition2->contains($date));
     }
 
+    /**
+     * Performs the logic operation
+     * @param bool $a
+     * @param bool $b
+     * @return bool
+     */
     abstract protected function evaluate($a, $b);
 
     /**

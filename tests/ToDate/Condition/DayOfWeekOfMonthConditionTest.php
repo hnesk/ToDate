@@ -9,16 +9,14 @@ namespace ToDate\Condition;
 class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::__construct
      */
     public function testConstructor()
     {
         $c = new DayOfWeekOfMonthCondition(3, 'WED');
-        self::assertEquals('DayOfWeekOfMonth = 3WED', (string)$c);
+        self::assertEquals('DayOfWeekOfMonth = 3WED', (string) $c);
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::contains
@@ -31,7 +29,6 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2012-02-06')));
         self::assertFalse($c->contains(new \DateTime('2012-02-08')));
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::contains
@@ -83,7 +80,6 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2012-03-06')));
     }
 
-
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::contains
      */
@@ -106,7 +102,6 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2012-03-01')));
     }
 
-
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::contains
      */
@@ -117,7 +112,6 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2012-02-22')));
         self::assertFalse($c->contains(new \DateTime('2012-03-07')));
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::contains
@@ -142,9 +136,7 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2012-02-21')));
         self::assertTrue($c->contains(new \DateTime('2012-02-28')));
 
-
     }
-
 
     /**
      * @covers ToDate\Condition\DayOfWeekOfMonthCondition::__toString
@@ -152,7 +144,7 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $c = new DayOfWeekOfMonthCondition(1, 'TUE');
-        self::assertEquals('DayOfWeekOfMonth = 1TUE', (string)$c);
+        self::assertEquals('DayOfWeekOfMonth = 1TUE', (string) $c);
     }
 
     /**
@@ -162,10 +154,7 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithMultipleWeeks()
     {
         $c = new DayOfWeekOfMonthCondition('2,-1', 'TUE');
-        self::assertEquals('DayOfWeekOfMonth = 2,-1TUE', (string)$c);
+        self::assertEquals('DayOfWeekOfMonth = 2,-1TUE', (string) $c);
     }
 
-
 }
-
-?>

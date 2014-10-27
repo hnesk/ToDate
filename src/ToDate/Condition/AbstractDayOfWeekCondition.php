@@ -47,6 +47,9 @@ abstract class AbstractDayOfWeekCondition extends AbstractDateCondition
      */
     static $PUKOOL = array();
 
+    /**
+     * Ensure reverse lookup table
+     */
     public function __construct()
     {
         if (!self::$PUKOOL) {
@@ -76,12 +79,13 @@ abstract class AbstractDayOfWeekCondition extends AbstractDateCondition
         foreach ($daysOfWeek as $dayOfWeek) {
             $result[self::lookupWeekday($dayOfWeek)] = true;
         }
+
         return $result;
     }
 
     /**
      *
-     * @param string|int $dayOfWeek
+     * @param  string|int                $dayOfWeek
      * @return int
      * @throws \InvalidArgumentException
      */
@@ -99,13 +103,14 @@ abstract class AbstractDayOfWeekCondition extends AbstractDateCondition
                 throw new \InvalidArgumentException('Day of week needs to be one of DayOfWeekCondition::MON, ..., but was: ' . $dayOfWeek);
             }
         }
+
         return $dayOfWeek;
     }
 
     /**
      * Translates numeric to Symbolic Weekday names
      *
-     * @param array $daysOfWeek
+     * @param  array $daysOfWeek
      * @return array
      */
     protected static function getSymbolicWeekDays($daysOfWeek)

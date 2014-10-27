@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class MonthConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\MonthCondition::__construct
      * @covers ToDate\Condition\MonthCondition::contains
@@ -35,7 +34,6 @@ class MonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertFalse($c->contains(new \DateTime('2012-05-04')));
     }
 
-
     /**
      * @covers ToDate\Condition\MonthCondition::__construct
      * @covers ToDate\Condition\MonthCondition::contains
@@ -58,10 +56,7 @@ class MonthConditionTest extends \PHPUnit_Framework_TestCase
     public function testToString()
     {
         $c = new MonthCondition('3-5');
-        self::assertEquals('Month = 3,4,5', (string)$c);
+        self::assertEquals('Month = 3,4,5', (string) $c);
     }
 
-
 }
-
-?>

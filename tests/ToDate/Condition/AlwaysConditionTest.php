@@ -9,7 +9,6 @@ namespace ToDate\Condition;
 class AlwaysConditionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /**
      * @covers ToDate\Condition\AlwaysCondition::contains
      */
@@ -27,9 +26,7 @@ class AlwaysConditionTest extends \PHPUnit_Framework_TestCase
     public function testToStringWithSingleValue()
     {
         $c = new AlwaysCondition();
-        self::assertEquals('Always', (string)$c);
+        self::assertEquals('Always', (string) $c);
     }
 
 }
-
-?>
