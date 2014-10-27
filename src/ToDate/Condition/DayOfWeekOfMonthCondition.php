@@ -1,0 +1,100 @@
+<?php
+
+namespace ToDate\Condition;
+
+/*                                                                        *
+ * This file is part of the ToDate library                                *
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU Lesser General Public License, either version 3   *
+ * of the License, or (at your option) any later version.                 *
+ *                                                                        *
+ * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+
+/**
+ * Class DayOfWeekOfMonthCondition
+ *
+ * Monthly recurring dates, based on weekdays
+ *
+ * Example: DayOfWeekOfMonth = 2,-1FRI
+ * Every 2nd and last Friday each month
+ */
+class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
+{
+
+    const FIRST = 1;
+    const SECOND = 2;
+    const THIRD = 3;
+    const FOURTH = 4;
+    const FIFTH = 5;
+
+    const LAST = -1;
+    const ULTIMATE = -1;
+    const SECOND_LAST = -2;
+    const PENULTIMATE = -2;
+    const THIRD_LAST = -3;
+    const ANTEPENULTIMATE = -3;
+    const FOURTH_LAST = -4;
+    const FIFTH_LAST = -5;
+
+    /**
+     * Stores select days as a fast to check lookup table
+     * @var int
+     */
+    protected $dayOfWeek;
+
+    /**
+     *
+     * @var int
+     */
+    protected $weeksOfMonth;
+
+    /**
+     * @param int|array $weeksOfMonth
+     * @param int|string $dayOfWeek
+     */
+    public function __construct($weeksOfMonth, $dayOfWeek)
+    {
+        parent::__construct();
+        $this->weeksOfMonth = self::toArray($weeksOfMonth);
+        $this->dayOfWeek = self::lookupWeekday($dayOfWeek);
+    }
+
+
+    /**
+     * @param \DateTime $date
+     * @return boolean
+     */
+    public function contains(\DateTime $date)
+    {
+        $date = self::normalizeDate($date);
+        if ($this->dayOfWeek != $date->format('N')) {
+            return false;
+        }
+
+        foreach ($this->weeksOfMonth as $weekOfMonth) {
+            if ($weekOfMonth > 0) {
+                // starting from the beginning of the month
+                $anchorDateString = $date->format('Y-m-01');
+            } else {
+                // starting from the end of the next month
+                $anchorDateString = $date->format('Y') . '-' . (1 + (int)$date->format('m')) . '-01';
+            }
+            $testDate = new \DateTime($anchorDateString);
+            $testDate->modify($weekOfMonth . ' ' . self::$PUKOOL[$this->dayOfWeek]);
+            if ($date == $testDate) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return 'DayOfWeekOfMonth = ' . implode(',', $this->weeksOfMonth) . self::$PUKOOL[$this->dayOfWeek];
+    }
+}

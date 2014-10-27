@@ -8,14 +8,10 @@
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+use hafriedlander\Peg\Compiler;
 
-use ToDate\Iterator\ConditionIterator;
-use ToDate\Iterator\DayIterator;
+require_once __DIR__ . '/../vendor/hafriedlander/php-peg/autoloader.php';
 
-$germanHolidays = 'DayOfWeek = SAT,SUN OR DayAndMonth = 1/1 OR Date = Easter-2 OR Date = Easter+1 OR DayAndMonth = 1/5 OR Date = Easter+39 OR Date = Easter+50 OR Date = Easter+60 OR DayAndMonth = 3/10 OR DayAndMonth = 1/11 OR DayAndMonth = 25/12 OR DayAndMonth = 26/12';
-
-$it = new ConditionIterator(new DayIterator('2014-01-01', '2014-12-31'), $germanHolidays);
-foreach ($it as $date) {
-    echo $date->format('d.m.Y, l') . PHP_EOL;
-}
+$input = file_get_contents(__DIR__ . '/FormalDateExpressionParser.peg.inc');
+$output = Compiler::compile($input);
+file_put_contents(__DIR__ . '/../src/ToDate/Parser/Generated/FormalDateExpressionParser.php', $output);

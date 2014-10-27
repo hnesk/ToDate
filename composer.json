@@ -1,0 +1,38 @@
+{
+    "name": "hnesk/todate",
+    "description": "An easy PHP date library and DSL for date expression",
+    "keywords": [
+        "Date",
+        "DSL",
+        "library"
+    ],
+    "type": "library",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Johannes Künsebeck",
+            "email": "kuensebeck@googlemail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "hafriedlander\\Peg\\Parser": "vendor/hafriedlander/php-peg/lib"
+        },
+        "psr-4": {
+            "ToDate\\": "src/ToDate"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ToDate\\": "tests/ToDate"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "hafriedlander/php-peg": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2"
+    }
+}
