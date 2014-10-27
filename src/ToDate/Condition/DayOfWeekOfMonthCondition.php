@@ -73,14 +73,11 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
         }
 
         foreach ($this->weeksOfMonth as $weekOfMonth) {
-            if ($weekOfMonth > 0) {
-                // starting from the beginning of the month
-                $anchorDateString = $date->format('Y-m-01');
-            } else {
-                // starting from the end of the next month
-                $anchorDateString = $date->format('Y') . '-' . (1 + (int) $date->format('m')) . '-01';
+            $testDate = new \DateTime($date->format('Y-m-01'));
+            if ($weekOfMonth < 0) {
+                $testDate->add(new \DateInterval('P1M'));
             }
-            $testDate = new \DateTime($anchorDateString);
+
             $testDate->modify($weekOfMonth . ' ' . self::$PUKOOL[$this->dayOfWeek]);
             if ($date == $testDate) {
                 return true;
