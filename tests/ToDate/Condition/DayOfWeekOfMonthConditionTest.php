@@ -137,7 +137,9 @@ class DayOfWeekOfMonthConditionTest extends \PHPUnit_Framework_TestCase
         self::assertTrue($c->contains(new \DateTime('2012-02-28')));
     }
 
-
+    /**
+     * @covers ToDate\Condition\DayOfWeekOfMonthCondition::contains
+     */
     public function testContainsOnYearBoundary() {
         $c = new DayOfWeekOfMonthCondition(array(2, -1), 'SAT');
         $this->assertFalse($c->contains(new \DateTime('2014-12-06')));
