@@ -1,18 +1,19 @@
 {
     "name": "hnesk/todate",
-    "description": "An easy PHP date library and DSL for date expression",
+    "description": "An easy to use DSL for date expression",
     "keywords": [
         "Date",
         "DSL",
-        "library"
+        "holidays"
     ],
-    "type": "library",
+    "homepage": "https://github.com/hnesk/ToDate",
     "license": "GPL-3.0",
     "authors": [
         {
             "name": "Johannes Künsebeck",
             "email": "kuensebeck@googlemail.com",
-            "role": "Developer"
+            "role": "Developer",
+            "homepage": "https://github.com/hnesk/"
         }
     ],
     "autoload": {
