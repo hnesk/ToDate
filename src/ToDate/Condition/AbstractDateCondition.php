@@ -56,22 +56,6 @@ abstract class AbstractDateCondition implements DateConditionInterface
         }
     }
 
-    /**
-     *
-     * @param  \DateTime $date
-     * @param  string    $modify
-     * @return \DateTime
-     */
-    protected static function normalizeDate(\DateTime $date, $modify = '')
-    {
-        $result = clone $date;
-        $result->setTime(0, 0, 0);
-        if ($modify) {
-            $result->modify($modify);
-        }
-
-        return $result;
-    }
 
     /**
      * Alias for contains

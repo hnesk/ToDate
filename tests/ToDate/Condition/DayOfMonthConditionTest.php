@@ -11,7 +11,6 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::contains
-     * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
      */
     public function testContainsFindsSingleDay()
     {
@@ -23,7 +22,6 @@ class DayOfMonthConditionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ToDate\Condition\DayOfMonthCondition::contains
-     * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
      * @covers ToDate\Condition\AbstractDateCondition::toArray
      */
     public function testContainsFindsMultipleDays()

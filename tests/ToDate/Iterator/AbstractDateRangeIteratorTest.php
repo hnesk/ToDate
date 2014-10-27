@@ -28,19 +28,17 @@ class AbstractDateRangeIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ToDate\Iterator\AbstractDateRangeIterator::__construct
-     * @covers ToDate\Iterator\AbstractDateRangeIterator::getStart
-     * @covers ToDate\Iterator\AbstractDateRangeIterator::getEnd
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage End needs to be before start, start was "2012-02-09", end was "2012-02-08"
+     * @expectedExceptionCode 1414430503
      */
     public function testConstructorWithSwappedArguments()
     {
-        $it = new DayIterator(new \DateTime('2012-02-09'), new \DateTime('2012-02-08'));
-        self::assertEquals(new \DateTime('2012-02-08'), $it->getStart());
-        self::assertEquals(new \DateTime('2012-02-09'), $it->getEnd());
+        new DayIterator(new \DateTime('2012-02-09'), new \DateTime('2012-02-08'));
     }
 
     /**
      * @covers ToDate\Iterator\AbstractDateRangeIterator::__construct
-     * @covers ToDate\Iterator\AbstractDateRangeIterator::toDate
      * @covers ToDate\Iterator\AbstractDateRangeIterator::getStart
      * @covers ToDate\Iterator\AbstractDateRangeIterator::getEnd
      */
@@ -65,7 +63,6 @@ class AbstractDateRangeIteratorTest extends \PHPUnit_Framework_TestCase
     public function testKey()
     {
         self::assertEquals(0, $this->object->key());
-
     }
 
     /**

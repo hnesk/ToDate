@@ -10,6 +10,7 @@ namespace ToDate\Condition;
  * of the License, or (at your option) any later version.                 *
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+use ToDate\ToDate;
 
 /**
  * Class DateModuloOffsetCondition
@@ -22,15 +23,10 @@ namespace ToDate\Condition;
 class DateModuloOffsetCondition extends AbstractDateCondition
 {
 
-    /**
-     * @var $date
-     */
+    /** @var \DateTime $date */
     protected $date;
 
-    /**
-     *
-     * @var int
-     */
+    /** @var int */
     protected $offsetInDays;
 
     /**
@@ -40,7 +36,7 @@ class DateModuloOffsetCondition extends AbstractDateCondition
      */
     public function __construct(\DateTime $date, $offsetInDays)
     {
-        $this->date = self::normalizeDate($date);
+        $this->date = ToDate::normalizeDate($date);
         $this->offsetInDays = $offsetInDays;
     }
 
@@ -51,7 +47,7 @@ class DateModuloOffsetCondition extends AbstractDateCondition
      */
     public function contains(\DateTime $date)
     {
-        $days = $this->date->diff(self::normalizeDate($date))->days;
+        $days = $this->date->diff(ToDate::normalizeDate($date))->days;
 
         return $days % $this->offsetInDays === 0;
     }

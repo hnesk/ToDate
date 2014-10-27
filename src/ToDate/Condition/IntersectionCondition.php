@@ -22,6 +22,11 @@ class IntersectionCondition extends AbstractLogicCondition
 
     protected static $glue = 'AND';
 
+    /**
+     * @param bool $a
+     * @param bool $b
+     * @return bool
+     */
     protected function evaluate($a, $b)
     {
         return $a && $b;

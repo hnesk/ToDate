@@ -10,6 +10,7 @@ namespace ToDate\Iterator;
  * of the License, or (at your option) any later version.                 *
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+use ToDate\ToDate;
 
 /**
  * Class AbstractDateRangeIterator
@@ -38,27 +39,19 @@ abstract class AbstractDateRangeIterator implements \Iterator
      */
     public function __construct($start, $end)
     {
-        $this->start = self::toDate($start);
-        $this->end = self::toDate($end);
+        $this->start = ToDate::normalizeDate($start);
+        $this->end = ToDate::normalizeDate($end);
         if ($this->start->getTimestamp() > $this->end->getTimestamp()) {
-            list($this->start, $this->end) = array($this->end, $this->start);
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'End needs to be before start, start was "%s", end was "%s"',
+                    $this->start->format('Y-m-d'),
+                    $this->end->format('Y-m-d')
+                ),
+                1414430503
+            );
         }
         $this->rewind();
-    }
-
-    /**
-     * Build/clone a DateTime object out of string|DateTime
-     *
-     * @param  string|\DateTime $date
-     * @return \DateTime
-     */
-    protected static function toDate($date)
-    {
-        $dateCopy = $date instanceof \DateTime ? clone $date : new \DateTime($date);
-        /* @var $dateCopy \DateTime */
-        $dateCopy->setTime(0, 0, 0);
-
-        return $dateCopy;
     }
 
     public function rewind()

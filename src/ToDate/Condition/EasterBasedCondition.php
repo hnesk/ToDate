@@ -10,6 +10,7 @@ namespace ToDate\Condition;
  * of the License, or (at your option) any later version.                 *
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+use ToDate\ToDate;
 
 /**
  * Class EasterBasedCondition
@@ -52,7 +53,7 @@ class EasterBasedCondition extends AbstractDateCondition
      */
     public function contains(\DateTime $date)
     {
-        $testDate = self::normalizeDate($date, $this->offset . ' days');
+        $testDate = ToDate::normalizeDate($date, $this->offset . ' days');
 
         list($weekDay, $dayCheck, $year) = explode('-', $testDate->format('N-nd-Y'));
 

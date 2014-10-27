@@ -11,7 +11,6 @@ class EasterBasedConditionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ToDate\Condition\EasterBasedCondition::contains
-     * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
      */
     public function testContainsFindsEaster2012()
     {

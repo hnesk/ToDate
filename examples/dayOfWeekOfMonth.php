@@ -10,12 +10,10 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use ToDate\Iterator\ConditionIterator;
-use ToDate\Iterator\DayIterator;
-use ToDate\Parser\FormalDateExpressionParser;
+use ToDate\ToDate;
 
-$p = new FormalDateExpressionParser('DayOfWeekOfMonth = 2,-1SAT');
-$secondOrLastSaturday = $p->parse();
+
+$secondOrLastSaturday = ToDate::condition('DayOfWeekOfMonth = 2,-1SAT');
 
 $soRight =
     $secondOrLastSaturday->contains(new \DateTime('2014-11-29')) &&
@@ -29,9 +27,8 @@ $soWrong =
 
 var_dump($soWrong);
 
-$everyDayIn2014 = new DayIterator('2014-01-01', '2014-11-31');
-$every2ndAndLastSaturydayIn2014 = new ConditionIterator($everyDayIn2014, $secondOrLastSaturday);
+$everySecondAndLastSaturydayIn2014 = ToDate::conditionalIterator('2014-01-01', '2014-12-31', $secondOrLastSaturday);
 
-foreach ($every2ndAndLastSaturydayIn2014 as $saturday) {
+foreach ($everySecondAndLastSaturydayIn2014 as $saturday) {
     echo $saturday->format('d.m.Y, l') . PHP_EOL;
 }

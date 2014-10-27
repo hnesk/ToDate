@@ -10,6 +10,7 @@ namespace ToDate\Condition;
  * of the License, or (at your option) any later version.                 *
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+use ToDate\ToDate;
 
 /**
  * Class DateCondition
@@ -22,7 +23,7 @@ class DateCondition extends AbstractDateCondition
 {
 
     /**
-     * @var $date
+     * @var \DateTime $date
      */
     protected $date;
 
@@ -31,7 +32,7 @@ class DateCondition extends AbstractDateCondition
      */
     public function __construct(\DateTime $date)
     {
-        $this->date = self::normalizeDate($date);
+        $this->date = ToDate::normalizeDate($date);
     }
 
     /**
@@ -41,7 +42,7 @@ class DateCondition extends AbstractDateCondition
      */
     public function contains(\DateTime $date)
     {
-        return $this->date == self::normalizeDate($date);
+        return $this->date == ToDate::normalizeDate($date);
     }
 
     /**

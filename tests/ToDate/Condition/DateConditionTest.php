@@ -17,7 +17,6 @@ class DateConditionTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ToDate\Condition\DateCondition::__construct
      * @covers ToDate\Condition\DateCondition::contains
-     * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
      */
     public function testContainsReturnsTrueForSameDayAndDifferentTime()
     {
@@ -27,7 +26,6 @@ class DateConditionTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ToDate\Condition\DateCondition::__construct
      * @covers ToDate\Condition\DateCondition::contains
-     * @covers ToDate\Condition\AbstractDateCondition::normalizeDate
      */
     public function testContainsReturnsTrueForSameDayAndTime()
     {

@@ -10,6 +10,7 @@ namespace ToDate\Condition;
  * of the License, or (at your option) any later version.                 *
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+use ToDate\ToDate;
 
 /**
  * Class DayOfWeekOfMonthCondition
@@ -66,7 +67,7 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
      */
     public function contains(\DateTime $date)
     {
-        $date = self::normalizeDate($date);
+        $date = ToDate::normalizeDate($date);
         if ($this->dayOfWeek != $date->format('N')) {
             return false;
         }
