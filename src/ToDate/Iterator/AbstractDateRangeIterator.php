@@ -82,7 +82,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
      */
     public function current()
     {
-        return $this->current;
+        return clone $this->current;
     }
 
     /**
