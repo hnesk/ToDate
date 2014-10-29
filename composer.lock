@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "385bfe1aa2ddc9284224f5e505bbe289",
+    "hash": "ccd588ee0f4573dc2372f94d139e3fcf",
     "packages": [
         {
             "name": "hafriedlander/php-peg",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/hafriedlander/php-peg.git",
-                "reference": "819c7185a18c2afc06f939762d638987f044b01d"
+                "url": "https://github.com/hnesk/php-peg.git",
+                "reference": "628d4348a1d20eeff46fd57cd5b0bef3aaac9585"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hafriedlander/php-peg/zipball/819c7185a18c2afc06f939762d638987f044b01d",
-                "reference": "819c7185a18c2afc06f939762d638987f044b01d",
+                "url": "https://api.github.com/repos/hnesk/php-peg/zipball/628d4348a1d20eeff46fd57cd5b0bef3aaac9585",
+                "reference": "628d4348a1d20eeff46fd57cd5b0bef3aaac9585",
                 "shasum": ""
             },
             "require": {
@@ -27,16 +27,25 @@
                 "cli.php"
             ],
             "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload": {
+                "psr-0": {
+                    "hafriedlander\\Peg": "lib"
+                }
+            },
             "license": [
                 "MIT",
-                "GPLv2",
-                "BSD-3"
+                "GPL-2.0",
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Hamish Friedlander",
                     "email": "hamish@silverstripe.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Johannes Künsebeck",
+                    "email": "kuensebeck@googlemail.com",
                     "role": "Developer"
                 }
             ],
@@ -44,11 +53,14 @@
             "homepage": "https://github.com/hafriedlander/php-peg",
             "keywords": [
                 "DSL",
+                "PEG",
                 "compiler",
-                "parser",
-                "peg"
+                "parser"
             ],
-            "time": "2014-05-22 03:21:34"
+            "support": {
+                "source": "https://github.com/hnesk/php-peg/tree/master"
+            },
+            "time": "2014-10-29 17:06:29"
         }
     ],
     "packages-dev": [

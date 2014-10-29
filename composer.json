@@ -8,6 +8,12 @@
     ],
     "homepage": "https://github.com/hnesk/ToDate",
     "license": "GPL-3.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/hnesk/php-peg"
+        }
+    ],
     "authors": [
         {
             "name": "Johannes Künsebeck",
@@ -17,9 +23,6 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "hafriedlander\\Peg\\Parser": "vendor/hafriedlander/php-peg/lib"
-        },
         "psr-4": {
             "ToDate\\": "src/ToDate"
         }
