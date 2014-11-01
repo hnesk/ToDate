@@ -32,6 +32,8 @@ An easy PHP date library and DSL for date Expressions
 
 ### DateCondition
 ```php
+    <?php
+
     $helloween2014 = new DateCondition('2014-10-31');
     // alternative
     $helloween2014 = new DateCondition(new \DateTime('2014-10-31'));
@@ -39,11 +41,15 @@ An easy PHP date library and DSL for date Expressions
 
 ### DateModuloOffsetCondition
 ```php
+    <?php
+
     $everySecondFridayStartingHelloween = new DateModuloOffsetCondition('2014-10-31',14);
 ```
 
 ### DayOfWeekOfMonthCondition
 ```php
+    <?php
+
     $everySecondAndLastFridayAMonth = new DayOfWeekOfMonthCondition([2,-1], DayOfWeekOfMonthCondition::FRI);
     // alterantive 
     $everySecondAndLastFridayAMonth = new DayOfWeekOfMonthCondition([2,-1], 'FRI');
@@ -51,16 +57,22 @@ An easy PHP date library and DSL for date Expressions
 
 ### DayOfMonthCondition
 ```php
+    <?php
+
     $every1stAnd15th = new DayOfMonthCondition([1,15]);
 ```
 
 ### DayAndMonthCondition
-```php
+```php 
+    <?php
+
     $everyHelloween= new DayAndMonthCondition(31,10);
 ```
 
 ### DayOfWeekCondition
 ```php
+    <?php
+    
     $weekend = new DayOfWeekCondition([DayOfWeekCondition::SAT, DayOfWeekCondition::SUN]);
     // alternative
     $weekend = new DayOfWeekCondition('6-7');
@@ -68,18 +80,23 @@ An easy PHP date library and DSL for date Expressions
 
 ### MonthCondition
 ```php
+    <?php
+    
     $summer = new MonthCondition([4,5,6,7,8,9,10]);
     // alternative
     $summer = new MonthCondition('4-10');
 ```
 ### YearExpression
 ```php
+    <?php
+    
     $future = new YearCondition('2020-2099');
 ```
 
 ### EasterBasedCondition
 ```php
-
+    <?php
+    
     $easterSunday = new EasterBasedCondition(0);
     $easterMonday = new EasterBasedCondition(1);
     $elevenDaysAfterEasterSunday = new EasterBasedCondition(11);
@@ -100,16 +117,22 @@ An easy PHP date library and DSL for date Expressions
 
 ### IntersectionCondition or "AND"
 ```php
+    <?php
+    
     $allSaturydaysInSummer = new IntersectionCondition(new MonthCondition('4-10'), new DayOfWeekCondition('SAT');
 ```
 
 ### UnionCondition or "OR"
 ```php
+    <?php
+    
     $favoriteDays = new IntersectionCondition(new DayOfMonthCondition(25,12), new DayOfWeekCondition('SAT,SUN');
 ```
 
 ### NotCondition 
 ```php
+    <?php
+    
     $winter= new NotCondition(new MonthCondition('4-10'));
 ```
 
