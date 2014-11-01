@@ -30,33 +30,90 @@ An easy PHP date library and DSL for date Expressions
 
 ## Basic Expressions
 
-DateExpression
+### DateCondition
+```php
+    $helloween2014 = new DateCondition('2014-10-31');
+    // alternative
+    $helloween2014 = new DateCondition(new \DateTime('2014-10-31'));
+```
 
-DateModuloExpression
+### DateModuloOffsetCondition
+```php
+    $everySecondFridayStartingHelloween = new DateModuloOffsetCondition('2014-10-31',14);
+```
 
-DayOfWeekOfMonthExpression
+### DayOfWeekOfMonthCondition
+```php
+    $everySecondAndLastFridayAMonth = new DayOfWeekOfMonthCondition([2,-1], DayOfWeekOfMonthCondition::FRI);
+    // alterantive 
+    $everySecondAndLastFridayAMonth = new DayOfWeekOfMonthCondition([2,-1], 'FRI');
+```
 
-DayOfMonthExpression
+### DayOfMonthCondition
+```php
+    $every1stAnd15th = new DayOfMonthCondition([1,15]);
+```
 
-DayAndMonthExpression
+### DayAndMonthCondition
+```php
+    $everyHelloween= new DayAndMonthCondition(31,10);
+```
 
-DayOfWeekExpression
+### DayOfWeekCondition
+```php
+    $weekend = new DayOfWeekCondition([DayOfWeekCondition::SAT, DayOfWeekCondition::SUN]);
+    // alternative
+    $weekend = new DayOfWeekCondition('6-7');
+```
 
-MonthExpression
+### MonthCondition
+```php
+    $summer = new MonthCondition([4,5,6,7,8,9,10]);
+    // alternative
+    $summer = new MonthCondition('4-10');
+```
+### YearExpression
+```php
+    $future = new YearCondition('2020-2099');
+```
 
-YearExpression
+### EasterBasedCondition
+```php
 
-FeatureExpression
+    $easterSunday = new EasterBasedCondition(0);
+    $easterMonday = new EasterBasedCondition(1);
+    $elevenDaysAfterEasterSunday = new EasterBasedCondition(11);
+    // All easter constants
+    $goodFriday        = new EasterBasedCondition(EasterBasedCondition::GOOD_FRIDAY);
+    $holySaturday      = new EasterBasedCondition(EasterBasedCondition::HOLY_SATURDAY);
+    $easterSunday      = new EasterBasedCondition(EasterBasedCondition::EASTER_SUNDAY);
+    $easterMonday      = new EasterBasedCondition(EasterBasedCondition::EASTER_MONDAY);
+    $ascensionThursday = new EasterBasedCondition(EasterBasedCondition::ASCENSION_THURSDAY);
+    $whitSunday        = new EasterBasedCondition(EasterBasedCondition::WHIT_SUNDAY);
+    $whitMonday        = new EasterBasedCondition(EasterBasedCondition::WHIT_MONDAY);
+    $corpusChristi     = new EasterBasedCondition(EasterBasedCondition::CORPUS_CHRISTI);
+    
+```
+
 
 ## Logical Expressions
 
-AndExpression
+### IntersectionCondition or "AND"
+```php
+    $allSaturydaysInSummer = new IntersectionCondition(new MonthCondition('4-10'), new DayOfWeekCondition('SAT');
+```
 
-OrExpression
+### UnionCondition or "OR"
+```php
+    $favoriteDays = new IntersectionCondition(new DayOfMonthCondition(25,12), new DayOfWeekCondition('SAT,SUN');
+```
 
-NotExpression
+### NotCondition 
+```php
+    $winter= new NotCondition(new MonthCondition('4-10'));
+```
 
-## Examples
+## DSL
 
 DayOfWeek = SAT,SUN
 
