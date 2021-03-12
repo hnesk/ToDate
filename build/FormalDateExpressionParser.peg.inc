@@ -1,29 +1,22 @@
 <?php
+/** @noinspection ALL  */
+
+/*
+WARNING: This file has been machine generated. Do not edit it, or your changes will be overwritten next time it is compiled.
+Regenerate with:
+
+$ php build/compile.php
+
+*/
+
 namespace ToDate\Parser\Generated;
 
-/*!* !insert_autogen_warning */
+use hafriedlander\Peg\Parser;
 
-/*                                                                        *
- * This file is part of the ToDate library                                *
- *                                                                        *
- * It is free software; you can redistribute it and/or modify it under    *
- * the terms of the GNU Lesser General Public License, either version 3   *
- * of the License, or (at your option) any later version.                 *
- *                                                                        *
- * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
+class FormalDateExpressionParser extends Parser\Packrat {
 
-use hafriedlander\Peg\Parser\Basic;
-
-/*!* !insert_autogen_warning */
-
-/**
- * Class FormalDateExpressionParser
- *
- * Grammar for the peg parser
- */
-class FormalDateExpressionParser extends Basic
-{
     /*!* DateExpression
+
     Token: /[\d\w-]+/
     TokenList: Token (','|'-' Token)*
     Feature: /[dDjlNSwzWFmMntLoYyeIOPTZ]+/
@@ -67,7 +60,6 @@ class FormalDateExpressionParser extends Basic
     OrExpression: 'OR' > operand:Expression >
 
     Result: Expression > (AndExpression | OrExpression) *
+
     */
 }
-
-/*!* !insert_autogen_warning */

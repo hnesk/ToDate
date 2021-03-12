@@ -10,7 +10,8 @@
 
 use hafriedlander\Peg\Compiler;
 
-require_once __DIR__ . '/../vendor/hafriedlander/php-peg/autoloader.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
 
 $input = file_get_contents(__DIR__ . '/FormalDateExpressionParser.peg.inc');
 $output = Compiler::compile($input);
