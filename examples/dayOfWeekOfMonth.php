@@ -12,23 +12,22 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use ToDate\ToDate;
 
-
 $secondOrLastSaturday = ToDate::condition('DayOfWeekOfMonth = 2,-1SAT');
 
-$soRight =
-    $secondOrLastSaturday->contains(new \DateTime('2014-11-29')) &&
-    $secondOrLastSaturday->contains(new \DateTime('2014-11-08'));
+var_dump($secondOrLastSaturday->contains(new \DateTime('2014-11-29')));
+# bool(true)
 
-var_dump($soRight);
+var_dump($secondOrLastSaturday->contains(new \DateTime('2014-11-09')));
+# bool(false)
 
-$soWrong =
-    $secondOrLastSaturday->contains(new \DateTime('2014-11-09')) ||
-    $secondOrLastSaturday->contains(new \DateTime('2014-11-15'));
+$everySecondAndLastSaturydayIn2021 = ToDate::conditionalIterator('2021-01-01', '2021-12-31', $secondOrLastSaturday);
 
-var_dump($soWrong);
-
-$everySecondAndLastSaturydayIn2014 = ToDate::conditionalIterator('2014-01-01', '2014-12-31', $secondOrLastSaturday);
-
-foreach ($everySecondAndLastSaturydayIn2014 as $saturday) {
+foreach ($everySecondAndLastSaturydayIn2021 as $saturday) {
     echo $saturday->format('d.m.Y, l') . PHP_EOL;
 }
+# 09.01.2021, Saturday
+# 30.01.2021, Saturday
+# 13.02.2021, Saturday
+# ...
+# 11.12.2021, Saturday
+# 25.12.2021, Saturday
