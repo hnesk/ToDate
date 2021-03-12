@@ -46,7 +46,7 @@ All of these conditions are mapped to single `\ToDate\Condition\AbstractDateCond
 Just one fixed date, example only on Independence Day 2021
 
 ```php
-\ToDate\ToDate::condition('Date=2021-ß7-04') == new \ToDate\Condition\DateCondition(new DateTime('2021-07-04'));
+\ToDate\ToDate::condition('Date=2021-07-04') == new \ToDate\Condition\DateCondition(new DateTime('2021-07-04'));
 ```
 
 #### Easter based date conditions
@@ -62,7 +62,7 @@ Every whit sunday
 Every 2 weeks (14 days) starting from 2021-03-12
 
 ```php
-\ToDate\ToDate::condition('DateModule=2021-ß3-12%14') == new \ToDate\Condition\DateModuloOffsetCondition(new DateTime('2021-03-12'), 14);
+\ToDate\ToDate::condition('DateModule=2021-03-12%14') == new \ToDate\Condition\DateModuloOffsetCondition(new DateTime('2021-03-12'), 14);
 ```
 
 #### DayAndMonth
