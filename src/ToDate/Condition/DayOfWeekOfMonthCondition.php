@@ -65,7 +65,7 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         $date = ToDate::normalizeDate($date);
         if ($this->dayOfWeek != $date->format('N')) {
@@ -73,6 +73,7 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
         }
 
         foreach ($this->weeksOfMonth as $weekOfMonth) {
+            /** @noinspection PhpUnhandledExceptionInspection */
             $testDate = new \DateTime($date->format('Y-m-01'));
             if ($weekOfMonth < 0) {
                 $testDate->add(new \DateInterval('P1M'));
@@ -90,7 +91,7 @@ class DayOfWeekOfMonthCondition extends AbstractDayOfWeekCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'DayOfWeekOfMonth = ' . implode(',', $this->weeksOfMonth) . self::$PUKOOL[$this->dayOfWeek];
     }

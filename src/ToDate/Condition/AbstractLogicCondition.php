@@ -19,23 +19,14 @@ namespace ToDate\Condition;
 abstract class AbstractLogicCondition extends AbstractDateCondition
 {
     protected static $glue = 'XXX';
-    /**
-     *
-     * @var DateConditionInterface
-     */
+
+    /** @var DateConditionInterface */
     protected $condition1;
-    /**
-     *
-     * @var DateConditionInterface
-     */
+
+    /** @var DateConditionInterface */
     protected $condition2;
 
-    /**
-     *
-     * @param DateConditionInterface $condition1
-     * @param DateConditionInterface $condition2
-     */
-    public function __construct($condition1, $condition2)
+    public function __construct(DateConditionInterface $condition1, DateConditionInterface $condition2)
     {
         $this->condition1 = $condition1;
         $this->condition2 = $condition2;
@@ -46,7 +37,7 @@ abstract class AbstractLogicCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date): bool
     {
         return $this->evaluate($this->condition1->contains($date), $this->condition2->contains($date));
     }
@@ -57,13 +48,13 @@ abstract class AbstractLogicCondition extends AbstractDateCondition
      * @param bool $b
      * @return bool
      */
-    abstract protected function evaluate($a, $b);
+    abstract protected function evaluate(bool $a, bool $b): bool;
 
     /**
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return '(' . $this->condition1->__toString() . ') ' . static::$glue . ' (' . $this->condition2->__toString() . ')';
     }

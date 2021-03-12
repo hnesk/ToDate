@@ -29,7 +29,7 @@ class NotCondition extends AbstractDateCondition
      *
      * @param DateConditionInterface $condition
      */
-    public function __construct($condition)
+    public function __construct(DateConditionInterface $condition)
     {
         $this->condition = $condition;
     }
@@ -38,7 +38,7 @@ class NotCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return bool
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         return !$this->condition->contains($date);
     }
@@ -46,7 +46,7 @@ class NotCondition extends AbstractDateCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'NOT(' . $this->condition->__toString() . ')';
     }

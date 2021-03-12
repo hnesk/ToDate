@@ -68,11 +68,11 @@ abstract class AbstractDayOfWeekCondition extends AbstractDateCondition
      * "MON,TUE" => Monday, Tuesday => array(1 => true, 2 => true)
      * array('MON','THU') => array(1 => true, 4 => true)
      *
-     * @param $daysOfWeek
+     * @param string|array|int $daysOfWeek
      * @return array
      * @throws \InvalidArgumentException
      */
-    protected static function prepareWeekdays($daysOfWeek)
+    protected static function prepareWeekdays($daysOfWeek) : array
     {
         $daysOfWeek = self::toArray($daysOfWeek);
         $result = array();
@@ -110,10 +110,10 @@ abstract class AbstractDayOfWeekCondition extends AbstractDateCondition
     /**
      * Translates numeric to Symbolic Weekday names
      *
-     * @param  array $daysOfWeek
+     * @param array $daysOfWeek
      * @return array
      */
-    protected static function getSymbolicWeekDays($daysOfWeek)
+    protected static function getSymbolicWeekDays(array $daysOfWeek): array
     {
         return array_intersect_key(self::$PUKOOL, $daysOfWeek);
     }

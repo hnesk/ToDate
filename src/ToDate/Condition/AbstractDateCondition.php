@@ -62,7 +62,7 @@ abstract class AbstractDateCondition implements DateConditionInterface
      * @param \DateTime $date
      * @return bool
      */
-    public function __invoke(\DateTime $date)
+    public function __invoke(\DateTime $date) : bool
     {
         return $this->contains($date);
     }
@@ -70,7 +70,7 @@ abstract class AbstractDateCondition implements DateConditionInterface
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'Never';
     }
@@ -79,5 +79,5 @@ abstract class AbstractDateCondition implements DateConditionInterface
      * @param \DateTime $date
      * @return bool
      */
-    abstract public function contains(\DateTime $date);
+    abstract public function contains(\DateTime $date) : bool;
 }

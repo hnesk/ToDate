@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpMissingDocCommentInspection */
 
 namespace ToDate\Parser;
 
@@ -50,7 +50,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
      *
      * @return DateConditionInterface
      */
-    public function parse()
+    public function parse(): DateConditionInterface
     {
         $result = $this->match_Result();
         $this->lastResult = $result;
@@ -58,7 +58,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
         return $result['Expression'];
     }
 
-    public function getResult()
+    public function getResult(): array
     {
         return $this->lastResult;
     }
@@ -81,7 +81,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
      * Functions for DateExpression
      */
 
-    protected static function createList($sub)
+    protected static function createList($sub): array
     {
         return array_map('trim', explode(',', $sub['text']));
     }
@@ -116,11 +116,11 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
         $self['Date'] = self::createDate($sub);
     }
 
-    protected static function createDate($sub)
+    protected static function createDate($sub): \DateTime
     {
         $date = new \DateTime();
         $date->setDate($sub['Year']['text'], $sub['Month']['text'], $sub['Day']['text']);
-        $date->setTime(0, 0, 0);
+        $date->setTime(0, 0);
 
         return $date;
     }
@@ -132,7 +132,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
 
     protected function Expression_DateModuloExpression(&$self, $sub)
     {
-        $self['Expression'] = new DateModuloOffsetCondition($sub['Date'], $sub['Offset']);
+        $self['Expression'] = new DateModuloOffsetCondition($sub['Date'], (int)$sub['Offset']);
     }
 
     /*
@@ -179,7 +179,7 @@ class FormalDateExpressionParser extends GeneratedFormalDateExpressionParser
 
     protected function Expression_DayAndMonthExpression(&$self, $sub)
     {
-        $self['Expression'] = new DayAndMonthCondition($sub['Day']['text'], $sub['Month']['text']);
+        $self['Expression'] = new DayAndMonthCondition((int)$sub['Day']['text'], (int)$sub['Month']['text']);
     }
 
     protected function Expression_DayOfMonthExpression(&$self, $sub)

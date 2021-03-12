@@ -31,7 +31,7 @@ class DayOfMonthCondition extends FeatureInSetCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return self::formatSet('DayOfMonth', $this->set);
     }

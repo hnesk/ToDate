@@ -64,7 +64,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
      *
      * @return \DateTime
      */
-    public function getStart()
+    public function getStart(): \DateTime
     {
         return clone $this->start;
     }
@@ -72,7 +72,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
     /**
      * @return \DateTime
      */
-    public function getEnd()
+    public function getEnd(): \DateTime
     {
         return clone $this->end;
     }
@@ -80,7 +80,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
     /**
      * @return \DateTime
      */
-    public function current()
+    public function current(): \DateTime
     {
         return $this->current;
     }
@@ -88,7 +88,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
     /**
      * @return int
      */
-    public function key()
+    public function key(): int
     {
         return $this->iteration;
     }
@@ -105,7 +105,7 @@ abstract class AbstractDateRangeIterator implements \Iterator
     /**
      * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return $this->current->getTimestamp() <= $this->end->getTimestamp();
     }

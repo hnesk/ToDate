@@ -26,7 +26,7 @@ class UnionCondition extends AbstractLogicCondition
      * @param bool $b
      * @return bool
      */
-    protected function evaluate($a, $b)
+    protected function evaluate(bool $a, bool $b) : bool
     {
         return $a || $b;
     }

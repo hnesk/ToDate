@@ -11,7 +11,6 @@ namespace ToDate\Iterator;
  *                                                                        *
  * (c) 2012-2014 Johannes Künsebeck <kuensebeck@googlemail.com            */
 
-use ToDate\Condition;
 use ToDate\Condition\DateConditionInterface;
 use ToDate\Parser\FormalDateExpressionParser;
 
@@ -47,7 +46,7 @@ class ConditionIterator extends \FilterIterator
     /**
      * @return bool
      */
-    public function accept()
+    public function accept(): bool
     {
         $current = $this->getInnerIterator()->current();
 

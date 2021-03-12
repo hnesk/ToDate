@@ -23,15 +23,15 @@ class DayAndMonthCondition extends FeatureInSetCondition
      * @param int $day
      * @param int $month
      */
-    public function __construct($day, $month)
+    public function __construct(int $day, int $month)
     {
-        parent::__construct('j/n', (int) $day . '/' . (int) $month);
+        parent::__construct('j/n', $day . '/' . $month);
     }
 
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return self::formatSet('DayAndMonth', $this->set);
     }

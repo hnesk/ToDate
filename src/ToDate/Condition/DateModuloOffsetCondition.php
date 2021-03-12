@@ -32,9 +32,9 @@ class DateModuloOffsetCondition extends AbstractDateCondition
     /**
      *
      * @param \DateTime $date
-     * @param int       $offsetInDays
+     * @param int $offsetInDays
      */
-    public function __construct(\DateTime $date, $offsetInDays)
+    public function __construct(\DateTime $date, int $offsetInDays)
     {
         $this->date = ToDate::normalizeDate($date);
         $this->offsetInDays = $offsetInDays;
@@ -45,7 +45,7 @@ class DateModuloOffsetCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         $days = $this->date->diff(ToDate::normalizeDate($date))->days;
 
@@ -56,7 +56,7 @@ class DateModuloOffsetCondition extends AbstractDateCondition
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'DateModulo = ' . $this->date->format('Y-m-d') . '%' . $this->offsetInDays . 'd';
     }

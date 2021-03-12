@@ -32,7 +32,7 @@ class MonthCondition extends FeatureInSetCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return self::formatSet('Month', $this->set);
     }

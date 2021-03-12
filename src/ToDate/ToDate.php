@@ -24,10 +24,10 @@ use ToDate\Condition\DateConditionInterface;
 class ToDate {
 
     /**
-     * @param string $condition
+     * @param string|DateConditionInterface $condition
      * @return DateConditionInterface
      */
-    public static function condition($condition) {
+    public static function condition(string $condition) {
         if (is_string($condition)) {
             $p = new FormalDateExpressionParser($condition);
             $condition = $p->parse();
@@ -50,17 +50,19 @@ class ToDate {
 
     /**
      *
-     * @param  \DateTime|string|null $date
-     * @param  string    $modify
+     * @param \DateTime|string|null $date
+     * @param string $modify
      * @return \DateTime|null
+     *
+     * @noinspection PhpUnhandledExceptionInspection
      */
-    public static function normalizeDate($date = null, $modify = '')
+    public static function normalizeDate($date = null, $modify = ''): ?\DateTime
     {
         if (!$date) {
             return null;
         }
         $result = $date instanceof \DateTime ? clone $date : new \DateTime($date);
-        $result->setTime(0, 0, 0);
+        $result->setTime(0, 0);
         if ($modify) {
             $result->modify($modify);
         }

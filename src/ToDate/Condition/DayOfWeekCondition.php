@@ -38,7 +38,7 @@ class DayOfWeekCondition extends AbstractDayOfWeekCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         return isset($this->daysOfWeek[$date->format('N')]);
     }
@@ -46,7 +46,7 @@ class DayOfWeekCondition extends AbstractDayOfWeekCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'DayOfWeek = ' . implode(',', $this->getSymbolicWeekDays($this->daysOfWeek));
     }

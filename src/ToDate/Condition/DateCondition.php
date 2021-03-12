@@ -40,7 +40,7 @@ class DateCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         return $this->date == ToDate::normalizeDate($date);
     }
@@ -49,7 +49,7 @@ class DateCondition extends AbstractDateCondition
      *
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'Date = ' . $this->date->format('Y-m-d');
     }

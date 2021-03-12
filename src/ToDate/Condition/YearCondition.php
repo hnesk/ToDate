@@ -30,7 +30,7 @@ class YearCondition extends FeatureInSetCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return self::formatSet('Year', $this->set);
     }

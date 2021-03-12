@@ -20,11 +20,11 @@ interface DateConditionInterface
      * @param \DateTime
      * @return boolean
      */
-    public function contains(\DateTime $date);
+    public function contains(\DateTime $date) : bool;
 
     /**
      * @return string
      */
-    public function __toString();
+    public function __toString() : string;
 
 }

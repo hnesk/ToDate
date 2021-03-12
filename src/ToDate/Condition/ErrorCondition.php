@@ -29,7 +29,7 @@ class ErrorCondition extends AbstractDateCondition
      * @param string $errorMessage
      * @param string $originalExpression
      */
-    public function __construct($errorMessage, $originalExpression)
+    public function __construct(string $errorMessage, string $originalExpression)
     {
         $this->errorMessage = $errorMessage;
         $this->originalExpression = $originalExpression;
@@ -40,7 +40,7 @@ class ErrorCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         return false;
     }
@@ -48,7 +48,7 @@ class ErrorCondition extends AbstractDateCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'Error In:' . $this->originalExpression . ', : ' . $this->errorMessage;
     }

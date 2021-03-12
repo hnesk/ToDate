@@ -51,7 +51,7 @@ class EasterBasedCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         $testDate = ToDate::normalizeDate($date, $this->offset . ' days');
 
@@ -63,6 +63,7 @@ class EasterBasedCondition extends AbstractDateCondition
         }
 
         if (!isset(self::$easterCache[$year])) {
+            /** @noinspection PhpUnhandledExceptionInspection */
             $easterDate = new \DateTime('21-03-' . $year);
             $easterDate->modify(easter_days($year) . ' days');
             self::$easterCache[$year] = $easterDate;
@@ -76,7 +77,7 @@ class EasterBasedCondition extends AbstractDateCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'Easter' . ($this->offset != 0 ? ($this->offset < 0 ? '+' : '') . (-1 * $this->offset) : '');
     }

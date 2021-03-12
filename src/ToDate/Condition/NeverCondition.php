@@ -24,7 +24,7 @@ class NeverCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         return false;
     }
@@ -32,7 +32,7 @@ class NeverCondition extends AbstractDateCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return 'Never';
     }

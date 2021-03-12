@@ -38,11 +38,11 @@ class FeatureInSetCondition extends AbstractDateCondition
 
     /**
      *
-     * @param  string                    $features Date format characters for php date()
-     * @param  int|string|array          $set      Allowed value(s) for feature
+     * @param string $features Date format characters for php date()
+     * @param int|string|array $set Allowed value(s) for feature
      * @throws \InvalidArgumentException
      */
-    public function __construct($features, $set)
+    public function __construct(string $features, $set)
     {
         if (!preg_match('/[' . self::ALLOWED_DATE_FEATURES . ']+/', $features)) {
             throw new \InvalidArgumentException('Features need to be one or more of "' . self::ALLOWED_DATE_FEATURES . '", but  "' . $features . '" given');
@@ -55,7 +55,7 @@ class FeatureInSetCondition extends AbstractDateCondition
      * @param  \DateTime $date
      * @return boolean
      */
-    public function contains(\DateTime $date)
+    public function contains(\DateTime $date) : bool
     {
         return isset($this->set[$date->format($this->features)]);
     }
@@ -63,17 +63,17 @@ class FeatureInSetCondition extends AbstractDateCondition
     /**
      * @return string
      */
-    public function __toString()
+    public function __toString() : string
     {
         return self::formatSet('"' . $this->features . '"', $this->set);
     }
 
     /**
-     * @param  string $features
-     * @param  array  $set
+     * @param string $features
+     * @param array $set
      * @return string
      */
-    protected static function formatSet($features, $set)
+    protected static function formatSet(string $features, array $set) : string
     {
         return $features . ' = ' . implode(',', array_flip($set));
     }
