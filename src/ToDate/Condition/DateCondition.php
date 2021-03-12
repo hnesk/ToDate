@@ -28,9 +28,9 @@ class DateCondition extends AbstractDateCondition
     protected $date;
 
     /**
-     * @param \DateTime $date
+     * @param \DateTime|string $date
      */
-    public function __construct(\DateTime $date)
+    public function __construct($date)
     {
         $this->date = ToDate::normalizeDate($date);
     }

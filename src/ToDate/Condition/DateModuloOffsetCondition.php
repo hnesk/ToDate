@@ -31,10 +31,10 @@ class DateModuloOffsetCondition extends AbstractDateCondition
 
     /**
      *
-     * @param \DateTime $date
-     * @param int $offsetInDays
+     * @param \DateTime|string $date
+     * @param int       $offsetInDays
      */
-    public function __construct(\DateTime $date, int $offsetInDays)
+    public function __construct($date, $offsetInDays)
     {
         $this->date = ToDate::normalizeDate($date);
         $this->offsetInDays = $offsetInDays;
